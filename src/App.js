@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import RegistroForm from './components/RegistroForm';
 
-function App() {
+const App = () => {
+  const [mostrarRegistro, setMostrarRegistro] = useState(false);
+  const [mostrarMensajeRegistro, setMostrarMensajeRegistro] = useState(false);
+
+  const handleRegistroExitoso = () => {
+    setMostrarMensajeRegistro(true);
+
+    
+    setTimeout(() => {
+      setMostrarRegistro(false);
+    }, 3000);
+  };
+ 
+  const handleMostrarMensajeRegistro = (mostrar) => {
+    setMostrarMensajeRegistro(mostrar);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='pagina-inicio'>
+      {mostrarRegistro ? null : <h1>Página de Inicio</h1>}
+      {mostrarRegistro ? (
+        <RegistroForm
+          onRegistroExitoso={handleRegistroExitoso}
+          onMostrarMensajeRegistro={handleMostrarMensajeRegistro}
+        />
+      ) : (
+        <div>
+          <p>Bienvenido a la página de inicio</p>
+          <button onClick={() => setMostrarRegistro(true)}>Registrarme</button>
+        </div>
+      )}
+      {mostrarMensajeRegistro && (
+        <div>
+          <p>Gracias por registrarte 😊</p>
+        </div>
+      )}
     </div>
   );
-}
+};
 
 export default App;

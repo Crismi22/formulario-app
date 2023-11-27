@@ -1,0 +1,170 @@
+
+:root {
+  --violeta-claro: #D8BFD8;
+  --blanco: #FFFFFF;
+  --negro: #000000;
+  --violeta-oscuro: #9400D3;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.pagina-inicio {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #2c1654, #573d7a, #7c5f9e, #a882c2, #d0a6e5, #f5f5f5);
+  color: #fff; /* Color de texto en modo oscuro */
+}
+
+.modo-oscuro .pagina-inicio {
+  background: linear-gradient(to bottom, #1b0e2d, #382148, #553362, #724f7d, #8f6c97, #000000);
+  color: #000; /* Color de texto en modo claro */
+}
+.container {
+  width: 80%;
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: var(--violeta-claro);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: background 0.3s;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+h2 {
+  color: rgb(15, 15, 15);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 8px;
+  color: #FFFFFF;
+}
+
+input {
+  padding: 8px;
+  margin-bottom: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  border-style: none;
+  border-block-end-style: revert-layer;
+}
+
+input:focus {
+  outline: none;
+  border-bottom: 1px solid #808080; /* Reemplaza "yourBorderColor" con el color que desees */
+}
+
+button {
+  background-color: #9400D3;
+  color: #000000;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #a882c2;
+}
+
+p {
+  color: rgb(36, 14, 39);
+  font-weight: bold;
+}
+/* si se setea en true setMostrarRegistro se puede ver este mensaje */
+/* .mensaje-registro {
+  background-color: #4caf50; 
+  color: #fff; 
+  padding: 15px; 
+  margin-top: 20px; 
+  border-radius: 5px; 
+  text-align: center; 
+
+}
+
+
+.mensaje-registro p {
+  margin: 0; 
+} */
+
+.fondo-registro-exitoso {
+  background-image: url('/public/fondo.png');
+  background-size: cover;
+}
+
+
+
+/* Modo oscuro */
+.container.modo-oscuro {
+  background-color: var(--violeta-oscuro);
+  color: var(--blanco);
+}
+
+/* Botón de cambio de modo */
+.modo-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 25px;
+  color: var(--negro);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.label-color {
+  color: #8a2be2; /* Reemplaza "yourLabelColorDark" con el color deseado en modo oscuro */
+}
+
+.modo-oscuro .label-color {
+  color: #fff; /* Reemplaza "yourLabelColorLight" con el color deseado en modo claro */
+}
+
+.modo-oscuro button{
+  background-color: #a882c2;
+}
+
+.modo-oscuro button:hover{
+  background-color: #eadeec;
+}
+
+.modo-oscuro .modo-btn:hover{
+  background-color: var(--blanco);
+  color: #000;
+}
+.modo-oscuro .modo-btn {
+  background-color: #9400D3;
+}
+.modo-btn:hover {
+  color: var(--blanco);
+  background-color: #000;
+}
+
+/* Media queries para dispositivos más pequeños */
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 90%;
+  }
+
+  input {
+    font-size: 14px;
+  }
+}
